@@ -1,5 +1,17 @@
 # @papra/app
 
+## 26.4.3
+
+### Patch Changes
+
+- [#1111](https://github.com/papra-hq/papra/pull/1111) [`1ecd2c8`](https://github.com/papra-hq/papra/commit/1ecd2c8a0ef668a166941a797d241d605f1ae0b7) Thanks [@CorentinTh](https://github.com/CorentinTh)! - Fix admin layout pushing the sidenav out of view when page content is long.
+
+- [#1121](https://github.com/papra-hq/papra/pull/1121) [`3a67507`](https://github.com/papra-hq/papra/commit/3a675076877ea6c22feb06267ba7e68201947e60) Thanks [@CorentinTh](https://github.com/CorentinTh)! - Added the possibility to disable the initial startup execution of all scheduled tasks by setting the `RUN_SCHEDULED_TASKS_ON_STARTUP_DEFAULT=false` environment variable, mainly usefull for instance that reboot often, dev environments or fast startup requirements (few ms gained). Each task startup configuration remain individually configurable with their dedicated environment variable.
+
+- [#1109](https://github.com/papra-hq/papra/pull/1109) [`d9bc129`](https://github.com/papra-hq/papra/commit/d9bc129b7c74aff9b07682ec67cd6e148b50e138) Thanks [@CorentinTh](https://github.com/CorentinTh)! - Added the possibility to delete a user in the admin user details page.
+
+- [#996](https://github.com/papra-hq/papra/pull/996) [`2a8bdec`](https://github.com/papra-hq/papra/commit/2a8bdec2ae3c9e42c36777901264e47ceede00cc) Thanks [@magic0whi](https://github.com/magic0whi)! - Fix preview of pdfs without embedded fonts by packaging cmaps and custom fonts in the app assets. Increasing the bundle size by ~2mb, but it's worth it for the improved UX and compatibility with a wider range of pdfs.
+
 ## 26.4.2
 
 ### Patch Changes
