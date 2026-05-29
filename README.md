@@ -37,6 +37,12 @@ A live demo of the platform is available at [demo.papra.app](https://demo.papra.
 
 [![Papra](./.github/papra-screenshot.png)](https://demo.papra.app)
 
+## Fork Attribution
+
+This repository is a public portfolio fork of [Papra](https://github.com/papra-hq/papra), originally created by [Corentin Thomasset](https://corentin.tech) and the Papra contributors. The original project is licensed under AGPL-3.0-or-later; see [LICENSE](./LICENSE) and [ATTRIBUTION.md](./ATTRIBUTION.md).
+
+Changes in this fork are intended to demonstrate AI agent engineering work on top of the existing Papra application, including semantic search and agentic document workflows. This fork is not affiliated with or endorsed by the original Papra maintainers unless explicitly stated.
+
 ## Project Status
 
 Papra is under active development, the core functionalities are stable and usable. With lots of features and improvements added regularly.
