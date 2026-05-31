@@ -17,6 +17,7 @@ import { intakeEmailsConfig } from '../intake-emails/intake-emails.config';
 import { kvStoreConfig } from '../kv-store/kv-store.config';
 import { organizationsConfig } from '../organizations/organizations.config';
 import { organizationPlansConfig } from '../plans/plans.config';
+import { semanticSearchConfig } from '../semantic/semantic-search.config';
 import { createLogger } from '../shared/logger/logger';
 import { coercedPositiveIntegerSchema, strictlyPositiveIntegerSchema } from '../shared/schemas/number.schemas';
 import { IN_MS } from '../shared/units';
@@ -148,6 +149,7 @@ export const configDefinition = {
   documents: documentsConfig,
   documentsStorage: documentStorageConfig,
   documentSearch: documentSearchConfig,
+  semanticSearch: semanticSearchConfig,
   auth: authConfig,
   ingestionFolder: ingestionFolderConfig,
   tasks: tasksConfig,
