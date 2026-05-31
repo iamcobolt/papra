@@ -74,6 +74,7 @@
     "nanoid": "^5.1.5",
     "node-cron": "^3.0.3",
     "nodemailer": "^7.0.3",
+    "openai": "^6.39.1",
     "p-limit": "catalog:",
     "p-queue": "^8.1.0",
     "picomatch": "^4.0.4",
