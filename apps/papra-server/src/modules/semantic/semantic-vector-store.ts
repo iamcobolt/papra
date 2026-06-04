@@ -6,7 +6,7 @@ import type { SemanticVectorManifest, SemanticVectorStore, SemanticVectorStoreAv
 import { and, eq, inArray, sql } from 'drizzle-orm';
 import { documentsTable } from '../documents/documents.table';
 import { createLogger } from '../shared/logger/logger';
-import { SEMANTIC_VECTOR_META_ID, SEMANTIC_VECTOR_SCHEMA_VERSION } from './semantic-vector-store.constants';
+import { SEMANTIC_VECTOR_META_ID, SEMANTIC_VECTOR_METRIC, SEMANTIC_VECTOR_SCHEMA_VERSION } from './semantic-vector-store.constants';
 import { createSemanticDocumentContentHash, generateSemanticChunkId, semanticVectorDistanceToScore, serializeEmbeddingForLibsqlVector } from './semantic-vector-store.models';
 import { documentSemanticChunksTable, semanticVectorMetaTable } from './semantic.tables';
 
@@ -214,7 +214,7 @@ export function getExpectedSemanticVectorManifest({ config, now = new Date() }: 
     schemaVersion: SEMANTIC_VECTOR_SCHEMA_VERSION,
     model: config.semanticSearch.model,
     dimensions: config.semanticSearch.dimensions,
-    metric: config.semanticSearch.metric,
+    metric: SEMANTIC_VECTOR_METRIC,
     chunkSize: config.semanticSearch.chunkSize,
     chunkOverlap: config.semanticSearch.chunkOverlap,
     createdAt: now,

@@ -2,12 +2,10 @@ import type { ConfigDefinition } from 'figue';
 import * as v from 'valibot';
 import { booleanishSchema } from '../config/config.schemas';
 import { coercedPositiveIntegerSchema } from '../shared/schemas/number.schemas';
-import { SEMANTIC_VECTOR_CHUNK_OVERLAP, SEMANTIC_VECTOR_CHUNK_SIZE, SEMANTIC_VECTOR_DIMENSIONS, SEMANTIC_VECTOR_METRIC, SEMANTIC_VECTOR_MODEL } from './semantic-vector-store.constants';
+import { SEMANTIC_VECTOR_CHUNK_OVERLAP, SEMANTIC_VECTOR_CHUNK_SIZE, SEMANTIC_VECTOR_DIMENSIONS, SEMANTIC_VECTOR_MODEL } from './semantic-vector-store.constants';
 
 const OPENAI_SEMANTIC_SEARCH_PROVIDER_NAME = 'openai';
 const semanticSearchProviderNames = [OPENAI_SEMANTIC_SEARCH_PROVIDER_NAME] as const;
-const semanticSearchMetricNames = [SEMANTIC_VECTOR_METRIC] as const;
-
 export const semanticSearchConfig = {
   isEnabled: {
     doc: 'Whether semantic search is enabled',
@@ -44,11 +42,6 @@ export const semanticSearchConfig = {
     schema: coercedPositiveIntegerSchema,
     default: SEMANTIC_VECTOR_DIMENSIONS,
     env: 'SEMANTIC_SEARCH_DIMENSIONS',
-  },
-  metric: {
-    doc: 'The semantic vector distance metric',
-    schema: v.picklist(semanticSearchMetricNames),
-    default: SEMANTIC_VECTOR_METRIC,
   },
   chunkSize: {
     doc: 'The maximum text chunk size for semantic search indexing',
