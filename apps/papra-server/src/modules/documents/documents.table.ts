@@ -21,6 +21,9 @@ export const documentsTable = sqliteTable('documents', {
   content: text('content').notNull().default(''),
   documentDate: integer('document_date', { mode: 'timestamp_ms' }),
 
+  semanticIndexedAt: integer('semantic_indexed_at', { mode: 'timestamp_ms' }),
+  semanticIndexContentHash: text('semantic_index_content_hash'),
+
   fileEncryptionKeyWrapped: text('file_encryption_key_wrapped'), // The wrapped encryption key
   fileEncryptionKekVersion: text('file_encryption_kek_version'), // The key encryption key version used to encrypt the file encryption key
   fileEncryptionAlgorithm: text('file_encryption_algorithm'),

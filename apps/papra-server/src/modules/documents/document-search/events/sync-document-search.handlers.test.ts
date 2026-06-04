@@ -71,6 +71,8 @@ describe('sync-document-search event handlers', () => {
         fileEncryptionAlgorithm: null,
         fileEncryptionKekVersion: null,
         fileEncryptionKeyWrapped: null,
+        semanticIndexedAt: null,
+        semanticIndexContentHash: null,
       };
 
       eventServices.emitEvent({
@@ -116,6 +118,8 @@ describe('sync-document-search event handlers', () => {
         fileEncryptionAlgorithm: null,
         fileEncryptionKekVersion: null,
         fileEncryptionKeyWrapped: null,
+        semanticIndexedAt: null,
+        semanticIndexContentHash: null,
       };
 
       const changes = {
@@ -261,6 +265,8 @@ describe('sync-document-search event handlers', () => {
         fileEncryptionAlgorithm: null,
         fileEncryptionKekVersion: null,
         fileEncryptionKeyWrapped: null,
+        semanticIndexedAt: null,
+        semanticIndexContentHash: null,
       };
 
       // Emit multiple events in sequence

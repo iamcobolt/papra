@@ -1,10 +1,12 @@
 import type { ConfigDefinition } from 'figue';
 import * as v from 'valibot';
-import { booleanishSchema, urlSchema } from '../config/config.schemas';
+import { booleanishSchema } from '../config/config.schemas';
 import { coercedPositiveIntegerSchema } from '../shared/schemas/number.schemas';
+import { SEMANTIC_VECTOR_CHUNK_OVERLAP, SEMANTIC_VECTOR_CHUNK_SIZE, SEMANTIC_VECTOR_DIMENSIONS, SEMANTIC_VECTOR_METRIC, SEMANTIC_VECTOR_MODEL } from './semantic-vector-store.constants';
 
 const OPENAI_SEMANTIC_SEARCH_PROVIDER_NAME = 'openai';
 const semanticSearchProviderNames = [OPENAI_SEMANTIC_SEARCH_PROVIDER_NAME] as const;
+const semanticSearchMetricNames = [SEMANTIC_VECTOR_METRIC] as const;
 
 export const semanticSearchConfig = {
   isEnabled: {
@@ -34,37 +36,28 @@ export const semanticSearchConfig = {
   model: {
     doc: 'The embedding model to use for semantic search',
     schema: v.string(),
-    default: 'text-embedding-3-small',
+    default: SEMANTIC_VECTOR_MODEL,
     env: 'SEMANTIC_SEARCH_MODEL',
   },
   dimensions: {
     doc: 'The embedding vector dimensions for semantic search',
     schema: coercedPositiveIntegerSchema,
-    default: 1536,
+    default: SEMANTIC_VECTOR_DIMENSIONS,
     env: 'SEMANTIC_SEARCH_DIMENSIONS',
   },
-  database: {
-    url: {
-      doc: 'The LibSQL/Turso database URL for semantic search vectors',
-      schema: urlSchema,
-      default: 'file:./app-data/db/semantic-vectors.sqlite',
-      env: 'SEMANTIC_SEARCH_DATABASE_URL',
-    },
-    authToken: {
-      doc: 'The auth token for the semantic search LibSQL/Turso database',
-      schema: v.optional(v.string()),
-      default: undefined,
-      env: 'SEMANTIC_SEARCH_DATABASE_AUTH_TOKEN',
-    },
+  metric: {
+    doc: 'The semantic vector distance metric',
+    schema: v.picklist(semanticSearchMetricNames),
+    default: SEMANTIC_VECTOR_METRIC,
   },
   chunkSize: {
     doc: 'The maximum text chunk size for semantic search indexing',
     schema: coercedPositiveIntegerSchema,
-    default: 4000,
+    default: SEMANTIC_VECTOR_CHUNK_SIZE,
   },
   chunkOverlap: {
     doc: 'The text chunk overlap for semantic search indexing',
     schema: coercedPositiveIntegerSchema,
-    default: 400,
+    default: SEMANTIC_VECTOR_CHUNK_OVERLAP,
   },
 } as const satisfies ConfigDefinition;
