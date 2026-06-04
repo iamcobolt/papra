@@ -1095,6 +1095,8 @@ describe('documents usecases', () => {
                 originalSha256Hash: 'hash',
                 originalSize: 0,
                 originalStorageKey: 'organization-1/originals/document-1.txt',
+                semanticIndexContentHash: null,
+                semanticIndexedAt: null,
                 updatedAt: new Date('2025-12-11'),
               },
               userId: 'user-1',

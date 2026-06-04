@@ -80,6 +80,8 @@ describe('documents models', () => {
           createdAt: new Date('2025-01-01'),
           updatedAt: new Date('2025-01-01'),
           documentDate: new Date('2025-12-24'),
+          semanticIndexedAt: null,
+          semanticIndexContentHash: null,
         },
       })).to.eql({
         content: 'Hello, world!',

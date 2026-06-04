@@ -37,6 +37,8 @@ export function formatDocumentForApi<T extends PartialBy<DbSelectableDocument, '
       'fileEncryptionKeyWrapped',
       'fileEncryptionKekVersion',
       'originalStorageKey',
+      'semanticIndexedAt',
+      'semanticIndexContentHash',
     ],
   );
 }
