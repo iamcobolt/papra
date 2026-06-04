@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { loadDryConfig, parseConfig } from '../config/config';
 import { semanticSearchConfig } from './semantic-search.config';
-import { SEMANTIC_VECTOR_CHUNK_OVERLAP, SEMANTIC_VECTOR_CHUNK_SIZE, SEMANTIC_VECTOR_DIMENSIONS, SEMANTIC_VECTOR_METRIC, SEMANTIC_VECTOR_MODEL } from './semantic-vector-store.constants';
+import { SEMANTIC_VECTOR_CHUNK_OVERLAP, SEMANTIC_VECTOR_CHUNK_SIZE, SEMANTIC_VECTOR_DIMENSIONS, SEMANTIC_VECTOR_MODEL } from './semantic-vector-store.constants';
 
 describe('semantic search config', () => {
   test('uses existing-DB vector store defaults', () => {
@@ -14,7 +14,6 @@ describe('semantic search config', () => {
       openaiBaseUrl: undefined,
       model: SEMANTIC_VECTOR_MODEL,
       dimensions: SEMANTIC_VECTOR_DIMENSIONS,
-      metric: SEMANTIC_VECTOR_METRIC,
       chunkSize: SEMANTIC_VECTOR_CHUNK_SIZE,
       chunkOverlap: SEMANTIC_VECTOR_CHUNK_OVERLAP,
     });
@@ -40,7 +39,6 @@ describe('semantic search config', () => {
       openaiBaseUrl: 'http://127.0.0.1:11434/v1',
       model: 'custom-embedding-model',
       dimensions: 42,
-      metric: SEMANTIC_VECTOR_METRIC,
       chunkSize: SEMANTIC_VECTOR_CHUNK_SIZE,
       chunkOverlap: SEMANTIC_VECTOR_CHUNK_OVERLAP,
     });
@@ -52,5 +50,6 @@ describe('semantic search config', () => {
     expect(semanticConfigKeys).not.to.include('database');
     expect(semanticConfigKeys).not.to.include('databaseUrl');
     expect(semanticConfigKeys).not.to.include('databaseAuthToken');
+    expect(semanticConfigKeys).not.to.include('metric');
   });
 });
